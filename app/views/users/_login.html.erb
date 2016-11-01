@@ -1,0 +1,7 @@
+<%= form_for @user do |f| %>
+  First name: <%= f.text_field :first_name, autocomplete: "off" %>
+  Last name: <%= f.text_field :last_name, autocomplete: "off" %>
+  Username: <%= f.text_field :username, autocomplete: "off" %>
+  Password: <%= f.text_field :password, type: "password" %>
+  <%= f.submit %>
+<% end %>
