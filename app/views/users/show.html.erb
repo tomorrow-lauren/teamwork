@@ -1,5 +1,5 @@
 <div class="container">
-<div class="row">
+  <div class="row">
     <div class="col-md-12">
       <p class="bg-info text-center center-block h1"  id="describe">
         <%= current_user.first_name %> <%= current_user.last_name %>
@@ -20,7 +20,7 @@
     <div class="col-md-6 center-block">
       <ul>
         <li class="list-inline bg-info text-center h3" id="describe"> Articles </li>
-        <% current_user.articles.each do |article| %>
+        <% Article.where(author: current_user).each do |article| %>
           <li class="list-inline bg-info text-center h4" id="describe">
               <%= link_to(article.title, article_path(article.id))%>
           </li>
@@ -28,5 +28,4 @@
       </ul>
     </div>
   </div>
-</div>
 </div>
