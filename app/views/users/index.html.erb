@@ -1,7 +1,21 @@
-<% if logged_in? %>
-  <h1>Welcome back, <%= current_user.first_name %> <%= current_user.last_name %></h1>
-  <h2><a href="/profile">Go to Your Profile</a></h2>
-<% else%>
-  <h1 class="bg-info text-center"> TEAMWORK HQ</h1>
-  <h2 class="bg-info text-center">a place to connect with your teams</h2>
-<% end %>
+<div class="welcome">
+  <div class="container">
+  <% if logged_in? %>
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <h1 class="bg-info text-center"  id="welcome">Welcome back, <%= current_user.first_name %> <%= current_user.last_name %></h1>
+        <h3 class="bg-info text-center"  id="describe"><a href="/profile">Go to Your Profile</a></h2>
+      </div>
+    </div>
+
+  <% else%>
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <h1 class="bg-info text-center" id="welcome"> TEAMWORK HQ</h1>
+        <h2 class="bg-info text-center" id="describe">a place to connect with your teams</h2>
+        <h3 class="bg-info text-center" id="describe"><%= link_to("Login", login_path) %> or <%= link_to("Register", register_path)%>!</h2>
+      </div>
+    </div>
+  <% end %>
+  </div>
+</div>

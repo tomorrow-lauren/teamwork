@@ -4,6 +4,12 @@ class UsersController < ApplicationController
   end
 
   def show
+    if session[:user_id]
+      redirect_to '/profile'
+    else
+      redirect_to '/'
+    end
+
   end
 
   def new

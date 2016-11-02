@@ -30,7 +30,7 @@ articles = 100.times do |index|
 
 
   Article.create!(title: Faker::Hipster.sentence,
-                content: Faker::Hipster.paragraph(3),
+                content: Faker::Hipster.paragraph(10),
                 user_id: user_id,
                 team_id: team)
 end

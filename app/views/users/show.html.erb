@@ -1,17 +1,31 @@
-<div class="text-center bg-info">
-<h1><%= current_user.first_name %> <%= current_user.last_name %></h1>
-<h2>Teams:</h2>
-  <ul id="list-frame">
-    <% current_user.teams.each do |team| %>
-      <li class="list-inline h4">
-      <div id="team text-center"><%= link_to(team.team_name, team_path(team.id))%><</div></li>
-    <% end %>
-  </ul>
-  <h2>Articles:</h2>
-  <ul id="list-frame">
-    <% current_user.articles.each do |article| %>
-      <li class="list-inline h4">
-      <div id="team"><%= link_to(article.title, article_path(article.id))%></div></li>
-    <% end %>
-  </ul>
+<div class="container">
+<div class="row">
+    <div class="col-md-12">
+      <p class="bg-info text-center center-block h1"  id="describe">
+        <%= current_user.first_name %> <%= current_user.last_name %>
+      </p>
+    </div>
+  </div><div class="row">
+    <div class="col-md-6 center-block">
+      <ul>
+        <li class="list-inline bg-info text-center h3" id="describe"> Teams </li>
+        <% current_user.teams.each do |team| %>
+          <li class="list-inline bg-info text-center h4" id="describe">
+              <%= link_to(team.team_name, team_path(team.id))%>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="col-md-6 center-block">
+      <ul>
+        <li class="list-inline bg-info text-center h3" id="describe"> Articles </li>
+        <% current_user.articles.each do |article| %>
+          <li class="list-inline bg-info text-center h4" id="describe">
+              <%= link_to(article.title, article_path(article.id))%>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
 </div>

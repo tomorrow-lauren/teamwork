@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1 class="bg-info text-center"  id="describe">
+        Team <%= @team.team_name %>
+      </h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <ul>
+        <li class="list-inline bg-info text-center h3" id="describe"> Team Member Articles </li>
+        <% @team_articles.each do |article| %>
+          <li class="list-inline bg-info text-center h4" id="describe">
+              <%= link_to(article.title, article_path(article.id))%>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
