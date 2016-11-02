@@ -10,22 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161101221650) do
+ActiveRecord::Schema.define(version: 20161102170136) do
 
   create_table "articles", force: :cascade do |t|
-    t.integer  "user_id"
+    t.integer  "author_id"
     t.text     "title"
     t.text     "content"
     t.integer  "team_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_articles_on_author_id"
+    t.index ["team_id"], name: "index_articles_on_team_id"
   end
 
-  create_table "comments", force: :cascade do |t|
+  create_table "likes", force: :cascade do |t|
     t.integer  "user_id"
-    t.text     "content"
+    t.integer  "team_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["team_id"], name: "index_likes_on_team_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
   create_table "team_lists", force: :cascade do |t|

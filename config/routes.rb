@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   resources :teams, only: [:index, :show]
   resources :articles do
-    resources :comments, only: [:index, :new, :create]
+    resources :likes, only: [:new, :create]
   end
-  resources :comments, only: [:show, :edit, :update, :destroy]
+  resources :likes, only: [:destroy]
 end

@@ -25,12 +25,12 @@ articles = 100.times do |index|
   count = TeamList.count
   random_offset = rand(count)
   random_tl = TeamList.offset(random_offset).first
-  user_id = random_tl.user_id
+  @user = User.find(random_tl.user_id)
   team = random_tl.team_id
 
 
   Article.create!(title: Faker::Hipster.sentence,
-                content: Faker::Hipster.paragraph(10),
-                user_id: user_id,
+                content: Faker::Hipster.paragraph(5),
+                author: @user,
                 team_id: team)
 end

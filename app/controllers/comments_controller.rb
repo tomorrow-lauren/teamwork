@@ -6,9 +6,9 @@ class CommentsController < ApplicationController
   def create
     comment = Comment.new(comment_params)
     if comment.save
-      redirect_to '/'
+      redirect_to "/articles/" + comment.article_id + "/"
     else
-      redirect_to '/'
+      redirect_to "/articles/" + comment.article_id + "/"
     end
   end
 
