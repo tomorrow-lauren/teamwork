@@ -1,7 +1,36 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+User.destroy_all
+Article.destroy_all
+Team.destroy_all
+TeamList.destroy_all
+
+users = 100.times do |index|
+  User.create!(first_name: Faker::Name.first_name,
+                last_name: Faker::Name.last_name,
+                username: Faker::Hipster.word + "_" + Faker::Hipster.word,
+                password: "password",
+                password_confirmation: "password")
+end
+
+teams = 100.times do |index|
+  Team.create!(team_name: Faker::StarWars.planet,
+                description: Faker::StarWars.quote)
+end
+
+team_ups = 100.times do |index|
+  TeamList.create!(team_id: Team.pluck(:id).sample,
+                user_id: User.pluck(:id).sample)
+end
+
+articles = 100.times do |index|
+  count = TeamList.count
+  random_offset = rand(count)
+  random_tl = TeamList.offset(random_offset).first
+  @user = User.find(random_tl.user_id)
+  team = random_tl.team_id
+
+
+  Article.create!(title: Faker::Hipster.sentence,
+                content: Faker::Hipster.paragraph(5),
+                author: @user,
+                team_id: team)
+end
