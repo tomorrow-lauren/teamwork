@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
+
   root 'users#index'
+
 
   # register/login routes
   get 'profile', to: 'users#show'
@@ -9,9 +11,9 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy', as: 'logout'
 
-  resources :teams, only: [:index, :show] do
-    resources :articles do
-      resources :comments
-    end
+  resources :teams, only: [:index, :show]
+  resources :articles do
+    resources :comments, only: [:index, :new, :create]
   end
+  resources :comments, only: [:show, :edit, :update, :destroy]
 end

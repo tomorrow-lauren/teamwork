@@ -15,7 +15,7 @@
         <%= link_to raw("TeamWork HQ <i class='icon-coffee'></i>"), {controller: "users", action: "index"}, class: "navbar-brand", id: "header-font" %>
         <ul class="nav navbar-nav">
           <% if logged_in? %>
-            <li><a>Welcome, <i class='icon-user'></i> <%= current_user.name %></a></li>
+            <li><a href="/profile">Welcome, <i class='icon-user'></i> <%= current_user.first_name %></a></li>
             <li><%= link_to("Logout", logout_path) %></li>
           <% else %>
             <li><%= link_to("Register", register_path)%></li>

@@ -2,8 +2,7 @@
 
 <%= form_for :user, url: '/login' do |f| %>
 
-  Name: <%= f.text_field :name %>
-  Email: <%= f.text_field :email %>
+  Name: <%= f.text_field :username %>
   Password: <%= f.password_field :password %>
   <%= f.submit "Submit" %>
 

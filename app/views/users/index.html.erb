@@ -1,3 +1,7 @@
-<h1 class="bg-info"> TEAMWORK HQ</h1>
-<h2>a place to connect with your teams</h2>
-
+<% if logged_in? %>
+  <h1>Welcome back, <%= current_user.first_name %> <%= current_user.last_name %></h1>
+  <h2><a href="/profile">Go to Your Profile</a></h2>
+<% else%>
+  <h1 class="bg-info text-center"> TEAMWORK HQ</h1>
+  <h2 class="bg-info text-center">a place to connect with your teams</h2>
+<% end %>

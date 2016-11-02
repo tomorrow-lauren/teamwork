@@ -6,8 +6,9 @@ TeamList.destroy_all
 users = 100.times do |index|
   User.create!(first_name: Faker::Name.first_name,
                 last_name: Faker::Name.last_name,
-                username: Faker::Internet.user_name,
-                password_digest: Faker::Internet.password)
+                username: Faker::Hipster.word + "_" + Faker::Hipster.word,
+                password: "password",
+                password_confirmation: "password")
 end
 
 teams = 100.times do |index|
